@@ -1,0 +1,2045 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mistvale Tea Co. — Hill-grown tea, honestly made.</title>
+  <meta name="description" content="Shop thoughtfully selected teas from Mistvale Tea Co. Hill-grown tea, honestly made, with delivery across India.">
+  <link rel="canonical" href="https://mistvale.example/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mistvale Tea Co. — Hill-grown tea, honestly made.">
+  <meta property="og:description" content="Thoughtfully selected teas for your everyday ritual, from Mistvale Tea Co.">
+  <meta property="og:url" content="https://mistvale.example/">
+  <meta property="og:image" content="https://mistvale.example/images/hero-banner.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mistvale Tea Co. — Hill-grown tea, honestly made.">
+  <meta name="twitter:description" content="Thoughtfully selected teas for your everyday ritual.">
+  <meta name="twitter:image" content="https://mistvale.example/images/hero-banner.webp">
+
+  <!-- Exactly two font families, as required by BRAND.md. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --tea-green: #1f3d2b;
+      --leaf: #4f7942;
+      --cream: #f6f1e7;
+      --parchment: #ebe2cf;
+      --saffron: #d9962b;
+      --ink: #1b1b1b;
+      --error: #b3261e;
+      --white: #fffdf8;
+      --muted: #625f57;
+      --line: rgba(31,61,43,.16);
+      --shadow: 0 14px 40px rgba(31,61,43,.10);
+      --radius: 12px;
+      --content-width: 1200px;
+      --header-height: 76px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    body.is-locked { overflow: hidden; }
+
+    img { display: block; max-width: 100%; }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--saffron);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(var(--content-width), calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--leaf);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: "Fraunces", serif;
+      font-weight: 600;
+      line-height: 1.12;
+      color: var(--tea-green);
+    }
+
+    h1 { font-size: clamp(40px, 7vw, 64px); }
+    h2 { font-size: clamp(30px, 5vw, 42px); }
+    h3 { font-size: clamp(20px, 3vw, 24px); }
+
+    .muted { color: var(--muted); }
+
+    .announcement {
+      background: var(--tea-green);
+      color: var(--cream);
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(246,241,231,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      min-height: var(--header-height);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--tea-green);
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      background: var(--tea-green);
+      color: var(--cream);
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .brand-mark svg { width: 20px; height: 20px; }
+    .brand-name {
+      font-family: "Fraunces", serif;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 180ms ease;
+    }
+
+    .main-nav a:hover { color: var(--leaf); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-button,
+    .cart-button {
+      min-width: 44px;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--tea-green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .icon-button:hover,
+    .cart-button:hover {
+      background: var(--parchment);
+      transform: translateY(-2px);
+    }
+
+    .icon-button svg,
+    .cart-button svg { width: 20px; height: 20px; }
+
+    .cart-count {
+      min-width: 22px;
+      height: 22px;
+      padding: 0 6px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--saffron);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .mobile-menu {
+      display: none;
+      margin-left: auto;
+    }
+
+    .hero {
+      padding: 72px 0 64px;
+      background: var(--cream);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-copy p {
+      max-width: 620px;
+      margin: 20px 0 28px;
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, color 180ms ease, opacity 180ms ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+    .btn-primary {
+      background: var(--tea-green);
+      color: var(--cream);
+    }
+
+    .btn-primary:hover { background: #294f38; }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--tea-green);
+      color: var(--tea-green);
+    }
+
+    .btn-secondary:hover { background: var(--parchment); }
+
+    .hero-media {
+      min-height: 480px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--parchment);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      object-fit: cover;
+    }
+
+    .trust {
+      background: var(--parchment);
+      border-block: 1px solid var(--line);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .trust-item {
+      padding: 20px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .trust-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--tea-green);
+      color: var(--cream);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .trust-item strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--tea-green);
+    }
+
+    .trust-item span { font-size: 14px; color: var(--muted); }
+
+    .shop-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .shop-tools {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: var(--muted);
+    }
+
+    .field,
+    .select {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--ink);
+      padding: 10px 14px;
+    }
+
+    .search-input { padding-left: 44px; }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .filter-chip {
+      min-height: 40px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--tea-green);
+      border-radius: 999px;
+      padding: 0 16px;
+      font-weight: 600;
+      transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .filter-chip:hover { background: var(--parchment); transform: translateY(-1px); }
+    .filter-chip.active { background: var(--tea-green); color: var(--cream); }
+
+    .shop-status {
+      min-height: 24px;
+      margin: -12px 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: var(--parchment);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-media {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: #e5dbc6;
+      overflow: hidden;
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--saffron);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .product-badge.sold-out {
+      background: var(--tea-green);
+      color: var(--cream);
+    }
+
+    .quick-view {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      min-height: 40px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--cream);
+      color: var(--tea-green);
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .product-card:hover .quick-view,
+    .product-card:focus-within .quick-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .product-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-category {
+      margin-bottom: 6px;
+      color: var(--leaf);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .product-content h3 {
+      margin-bottom: 8px;
+      font-size: 22px;
+    }
+
+    .product-desc {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .rating {
+      min-height: 22px;
+      margin-bottom: 10px;
+      color: var(--tea-green);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    .price {
+      color: var(--tea-green);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .stock {
+      color: var(--leaf);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .stock.out { color: var(--error); }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .empty-state {
+      padding: 48px 20px;
+      text-align: center;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      background: var(--parchment);
+    }
+
+    .delivery {
+      background: var(--parchment);
+    }
+
+    .delivery-card {
+      display: grid;
+      grid-template-columns: 1fr .85fr;
+      gap: 32px;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--cream);
+    }
+
+    .delivery-form {
+      display: flex;
+      gap: 10px;
+      align-items: end;
+      margin-top: 20px;
+    }
+
+    .delivery-form label {
+      flex: 1;
+      display: grid;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .form-message {
+      min-height: 24px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .form-message.success { color: var(--leaf); }
+    .form-message.error { color: var(--error); }
+
+    .delivery-note {
+      padding: 20px;
+      border-left: 3px solid var(--saffron);
+      background: rgba(235,226,207,.55);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      align-self: center;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .review-card {
+      padding: 24px;
+      background: var(--parchment);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .review-quote {
+      margin: 0 0 18px;
+      font-family: "Fraunces", serif;
+      font-size: 20px;
+      line-height: 1.4;
+      color: var(--tea-green);
+    }
+
+    .review-author {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .faq {
+      background: var(--parchment);
+    }
+
+    .faq-list {
+      max-width: 900px;
+      margin: 28px auto 0;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item:last-child { border-bottom: 1px solid var(--line); }
+
+    .faq-question {
+      width: 100%;
+      min-height: 64px;
+      border: 0;
+      background: transparent;
+      color: var(--tea-green);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      text-align: left;
+      font-family: "Fraunces", serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      flex: 0 0 auto;
+      transition: transform 180ms ease;
+    }
+
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+
+    .faq-answer {
+      padding: 0 48px 20px 0;
+      color: var(--muted);
+    }
+
+    .newsletter {
+      background: var(--tea-green);
+      color: var(--cream);
+    }
+
+    .newsletter h2 { color: var(--cream); }
+    .newsletter p { color: rgba(246,241,231,.78); }
+
+    .newsletter-form {
+      max-width: 720px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .newsletter-form .field {
+      background: var(--cream);
+    }
+
+    .newsletter-form .btn-secondary {
+      border-color: var(--cream);
+      color: var(--cream);
+    }
+
+    .newsletter-form .btn-secondary:hover {
+      background: rgba(246,241,231,.10);
+    }
+
+    .site-footer {
+      padding: 48px 0;
+      background: #183021;
+      color: var(--cream);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(246,241,231,.18);
+    }
+
+    .footer-brand h2 { color: var(--cream); }
+    .footer-contact { color: rgba(246,241,231,.78); }
+    .footer-contact a { color: var(--cream); }
+    .footer-legal {
+      padding-top: 24px;
+      color: rgba(246,241,231,.70);
+      font-size: 13px;
+    }
+
+    .footer-legal p { margin: 8px 0; }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: rgba(27,27,27,.48);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease;
+    }
+
+    .overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      right: 0;
+      width: min(460px, 100%);
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      background: var(--cream);
+      box-shadow: -20px 0 50px rgba(0,0,0,.16);
+      transform: translateX(100%);
+      transition: transform 240ms ease;
+    }
+
+    .drawer.open { transform: translateX(0); }
+
+    .drawer-header,
+    .drawer-footer {
+      padding: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow: auto;
+      padding: 20px;
+    }
+
+    .drawer-footer {
+      border-top: 1px solid var(--line);
+      border-bottom: 0;
+    }
+
+    .cart-line {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cart-line img {
+      width: 72px;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 8px;
+      background: var(--parchment);
+    }
+
+    .cart-line h3 {
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .cart-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .qty-controls button {
+      width: 34px;
+      height: 34px;
+      border: 0;
+      background: transparent;
+      color: var(--tea-green);
+      font-weight: 700;
+    }
+
+    .qty-controls span {
+      min-width: 32px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .remove-button {
+      border: 0;
+      background: transparent;
+      color: var(--error);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .ship-message {
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: var(--radius);
+      background: var(--parchment);
+      color: var(--tea-green);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .ship-track {
+      height: 8px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      background: var(--parchment);
+      overflow: hidden;
+    }
+
+    .ship-fill {
+      height: 100%;
+      width: 0;
+      background: var(--leaf);
+      transition: width 200ms ease;
+    }
+
+    .coupon-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .coupon-message {
+      min-height: 22px;
+      margin: -8px 0 10px;
+      font-size: 13px;
+    }
+
+    .totals {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .total-row.final {
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      color: var(--tea-green);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(27,27,27,.55);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease;
+    }
+
+    .modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      width: min(720px, 100%);
+      max-height: 90dvh;
+      overflow: auto;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--cream);
+      box-shadow: var(--shadow);
+      transform: translateY(8px);
+      transition: transform 200ms ease;
+    }
+
+    .modal.open .modal-card { transform: translateY(0); }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .quick-view-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 24px;
+    }
+
+    .quick-view-image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--radius);
+      background: var(--parchment);
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 150;
+      max-width: calc(100% - 32px);
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      background: var(--tea-green);
+      color: var(--cream);
+      box-shadow: var(--shadow);
+      transform: translate(-50%, 120px);
+      opacity: 0;
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 1000px) {
+      .main-nav { gap: 14px; }
+      .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 760px) {
+      .section { padding: 48px 0; }
+
+      /* Mobile: keep every action visible and easy to tap */
+      .btn {
+        min-height: 48px;
+        padding: 0 16px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .filters {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        gap: 8px;
+      }
+
+      .filter-chip {
+        width: 100%;
+        min-width: 0;
+        padding: 0 10px;
+      }
+      .header-inner { grid-template-columns: auto 1fr auto; }
+      .main-nav { display: none; }
+      .mobile-menu { display: inline-flex; }
+      .header-actions .search-header { display: none; }
+
+      .hero { padding-top: 48px; }
+      .hero-grid,
+      .delivery-card,
+      .footer-grid,
+      .quick-view-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-media,
+      .hero-media img { min-height: 360px; }
+
+      .shop-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .shop-tools { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .product-content { padding: 14px; }
+      .product-content h3 { font-size: 18px; }
+      .product-desc { font-size: 13px; }
+      .quick-view { opacity: 1; transform: none; }
+      .delivery-form { flex-direction: column; align-items: stretch; }
+      .delivery-form .btn { width: 100%; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .newsletter-form .btn { width: 100%; }
+
+      .product-card .btn-primary {
+        width: 100%;
+      }
+      .newsletter-form { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 420px) {
+      .container { width: min(var(--content-width), calc(100% - 24px)); }
+      .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .brand-name { font-size: 21px; }
+      .header-inner { gap: 8px; }
+      .cart-button { padding: 0 8px; }
+      .cart-button span:not(.cart-count) { display: none; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .hero-copy p { font-size: 16px; }
+      .product-content h3 { font-size: 17px; }
+      .price { font-size: 17px; }
+      .stock { font-size: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json" id="organization-schema">
+  {
+    "@context": "https://schema.org",
+    "@type": "OnlineStore",
+    "name": "Mistvale Tea Co.",
+    "url": "https://mistvale.example/",
+    "description": "Hill-grown tea, honestly made.",
+    "telephone": "+91 90000 12345",
+    "email": "hello@mistvale.example",
+    "foundingDate": "2019",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "14 Hill Cart Road",
+      "addressLocality": "Siliguri",
+      "addressRegion": "West Bengal",
+      "postalCode": "734001",
+      "addressCountry": "IN"
+    },
+    "sameAs": ["https://instagram.com/mistvale.example"]
+  }
+  </script>
+  <script type="application/ld+json" id="faq-schema"></script>
+  <script type="application/ld+json" id="product-schema"></script>
+</head>
+
+<body>
+  <div class="announcement">Hill-grown tea, honestly made.</div>
+
+ <header class="site-header"> 
+  <div class="container header-inner"> 
+
+    <a class="brand" href="#top" aria-label="Mistvale home"> 
+
+      <span class="brand-mark">
+        <img src="images/logo.png" alt="Mistvale Tea Co.">
+      </span>
+
+      <span class="brand-name">Mistvale</span>
+
+    </a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#top">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#delivery">Delivery</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button search-header" type="button" aria-label="Focus product search" id="header-search-button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path>
+          </svg>
+        </button>
+        <button class="cart-button" type="button" id="cart-button" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M4 5h2l1.6 9.2a2 2 0 0 0 2 1.7h7.9a2 2 0 0 0 1.9-1.4L21 8H7"></path>
+            <circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle>
+          </svg>
+          <span>Cart</span>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <button class="icon-button mobile-menu" type="button" id="mobile-menu-button" aria-label="Open navigation" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Mistvale Tea Co.</p>
+          <h1>Hill-grown tea, honestly made.</h1>
+          <p>Thoughtfully selected teas for slow mornings, shared cups and everyday rituals.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#shop">Shop the teas</a>
+            <a class="btn btn-secondary" href="#faq">Learn about our tea</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="images/hero-banner.png" alt="Tea served in a calm, natural setting with warm morning light" width="1200" height="900">
+        </div>
+      </div>
+    </section>
+
+    <section class="trust" aria-label="Mistvale promises">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <span class="trust-icon" aria-hidden="true">✓</span>
+          <div><strong>GST-inclusive</strong><span>Prices include GST.</span></div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon" aria-hidden="true">7</span>
+          <div><strong>7-day returns</strong><span>On unopened packs.</span></div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon" aria-hidden="true">IN</span>
+          <div><strong>India delivery</strong><span>Check your pincode below.</span></div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon" aria-hidden="true">↗</span>
+          <div><strong>Thoughtfully selected</strong><span>Tea for everyday rituals.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="shop">
+      <div class="container">
+        <div class="shop-head">
+          <div>
+            <p class="eyebrow">The collection</p>
+            <h2>Find your everyday cup</h2>
+          </div>
+          <p class="muted">Eight teas and gifts, made easy to explore.</p>
+        </div>
+
+        <div class="shop-tools">
+          <div class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path>
+            </svg>
+            <label class="hidden" for="product-search">Search teas</label>
+            <input class="field search-input" id="product-search" type="search" autocomplete="off" placeholder="Search teas by name or description">
+          </div>
+          <label>
+            <span class="hidden">Sort products</span>
+            <select class="select" id="sort-select" aria-label="Sort products">
+              <option value="default">Featured</option>
+              <option value="low">Price: Low to High</option>
+              <option value="high">Price: High to Low</option>
+              <option value="name">Name: A–Z</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="filters" id="filters" role="group" aria-label="Product categories">
+          <button class="filter-chip active" type="button" data-category="all">All</button>
+          <button class="filter-chip" type="button" data-category="Black">Black</button>
+          <button class="filter-chip" type="button" data-category="Green">Green</button>
+          <button class="filter-chip" type="button" data-category="Herbal">Herbal</button>
+          <button class="filter-chip" type="button" data-category="Gifts">Gifts</button>
+        </div>
+
+        <div class="shop-status" id="shop-status" aria-live="polite"></div>
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+    </section>
+
+    <section class="section delivery" id="delivery">
+      <div class="container">
+        <div class="delivery-card">
+          <div>
+            <p class="eyebrow">Delivery check</p>
+            <h2>Will we reach your pincode?</h2>
+            <p class="muted">Enter your six-digit Indian pincode to see whether delivery is available and the estimated time.</p>
+
+            <form class="delivery-form" id="delivery-form" novalidate>
+              <label for="pin">
+                Pincode
+                <input class="field" id="pin" inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="e.g. 734001">
+              </label>
+              <button class="btn btn-primary" type="submit" id="pin-button">Check delivery</button>
+            </form>
+            <div class="form-message" id="pin-result" aria-live="polite"></div>
+          </div>
+
+          <div class="delivery-note">
+            <strong>Delivery timing</strong>
+            <p class="muted">2 to 5 working days depending on your pincode. Use the delivery check to see yours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <p class="eyebrow">From customers</p>
+        <h2>Words from the tea table</h2>
+        <div class="reviews-grid">
+          <article class="review-card">
+            <p class="review-quote">“Best masala chai I have ever had. Tastes like my nani's kitchen.”</p>
+            <p class="review-author">— Ananya</p>
+          </article>
+          <article class="review-card">
+            <p class="review-quote">“The Darjeeling first flush is so fresh. Packaging was lovely too.”</p>
+            <p class="review-author">— Rohit</p>
+          </article>
+          <article class="review-card">
+            <p class="review-quote">“Bought the sampler as a gift and now my whole family is hooked.”</p>
+            <p class="review-author">— Meeraj</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container">
+        <p class="eyebrow">Questions, answered</p>
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list" id="faq-list"></div>
+      </div>
+    </section>
+
+    <section class="section newsletter">
+      <div class="container">
+        <p class="eyebrow" style="color: var(--saffron);">Stay close to the tea</p>
+        <h2>Join the Mistvale tea circle</h2>
+        <p>Receive occasional updates about our teas and brewing notes.</p>
+        <form class="newsletter-form" id="newsletter-form" novalidate>
+          <label class="hidden" for="nl-email">Email address</label>
+          <input class="field" id="nl-email" type="email" autocomplete="email" placeholder="Your email address" required>
+          <button class="btn btn-secondary" type="submit">Subscribe</button>
+        </form>
+        <div class="form-message" id="nl-msg" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Mistvale</h2>
+          <p>Hill-grown tea, honestly made.</p>
+        </div>
+        <div class="footer-contact">
+          <p>Mistvale Tea Co. · 14 Hill Cart Road, Siliguri, West Bengal 734001 · hello@mistvale.example · +91 90000 12345</p>
+          <p><a href="https://instagram.com/mistvale.example" rel="noopener noreferrer">Instagram</a></p>
+        </div>
+      </div>
+
+      <div class="footer-legal">
+        <!-- LEGAL: approved wording, do not edit (ref MV-LGL-07) -->
+        <p class="legal">All prices are inclusive of GST. Returns are accepted within 7 days of delivery on unopened packs only; opened tea cannot be returned for hygiene reasons. Tea colour and flavour may vary slightly between harvests.</p>
+        <p class="legal">&copy; 2020 MistVale. All right reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 id="cart-title">Your cart</h2>
+      <button class="icon-button" type="button" id="close-cart" aria-label="Close cart">×</button>
+    </div>
+    <div class="drawer-body">
+      <div id="ship-message" class="ship-message"></div>
+      <div class="ship-track" aria-hidden="true"><div class="ship-fill" id="ship-fill"></div></div>
+      <div id="cart-items"></div>
+    </div>
+    <div class="drawer-footer">
+      <div class="coupon-row">
+        <label class="hidden" for="coupon">Coupon code</label>
+        <input class="field" id="coupon" type="text" autocomplete="off" placeholder="Coupon code">
+        <button class="btn btn-secondary" type="button" id="coupon-button">Apply</button>
+      </div>
+      <div class="coupon-message" id="coupon-message" aria-live="polite"></div>
+      <div class="totals" id="totals"></div>
+      <button class="btn btn-primary" type="button" id="checkout-button" style="width:100%;">Checkout</button>
+    </div>
+  </aside>
+
+  <div class="modal" id="quick-view-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="quick-view-title">
+      <div class="modal-header">
+        <h2 id="quick-view-title">Tea details</h2>
+        <button class="icon-button" type="button" id="close-quick-view" aria-label="Close product details">×</button>
+      </div>
+      <div id="quick-view-body"></div>
+    </div>
+  </div>
+
+  <!-- Checkout contract: the backend reads this form. Do not rename it or its fields. -->
+  <form id="checkout-form" action="https://mistvale.example/cart/checkout" method="POST" style="display:none">
+    <input type="hidden" name="items">
+    <input type="hidden" name="coupon">
+  </form>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // product data - comes from backend, DO NOT CHANGE ids, names or prices
+    const PRODUCTS = [
+      { id: 101, name: "Assam Breakfast Black Tea", category: "Black", price: 349, stock: 4, image: "images/p101.png", desc: "Strong, malty CTC tea from Upper Assam estates. Perfect with milk and a little sugar in the morning." },
+      { id: 102, name: "Darjeeling First Flush", category: "Black", price: 1299, stock: 12, image: "images/p102.png", desc: "Delicate, floral spring harvest leaves with a muscatel note. Best without milk.", rating: 4.8, reviews: 128 },
+      { id: 103, name: "Kashmiri Kahwa", category: "Green", price: 549, stock: 25, image: "images/p103.png", desc: "Green tea with saffron, cardamom, cinnamon and almond flakes." },
+      { id: 104, name: "Masala Chai Blend", category: "Black", price: 399, stock: 60, image: "images/p104.png", desc: "Bold Assam leaves with ginger, cardamom, clove and black pepper. Our bestseller.", rating: 4.7, reviews: 342 },
+      { id: 105, name: "Nilgiri Green Tea", category: "Green", price: 449, stock: 30, image: "images/p105.png", desc: "Smooth, grassy green tea from the Blue Mountains of the south." },
+      { id: 106, name: "Chamomile & Tulsi", category: "Herbal", price: 499, stock: 18, image: "images/p106.png", desc: "Caffeine-free calming blend of chamomile flowers and holy basil." },
+      { id: 107, name: "Hibiscus Rose Infusion", category: "Herbal", price: 599, stock: 0, image: "images/p107.png", desc: "Tangy hibiscus with rose petals. Lovely iced." },
+      { id: 108, name: "Tea Lover's Sampler Gift Box", category: "Gifts", price: 1899, stock: 9, image: "images/p108.png", desc: "Six of our favourite teas in a wooden gift box with a brewing guide." }
+    ];
+
+    // ---- API START: simulated store backend. DO NOT CHANGE this block. ----
+    const API = {
+      // Searches names and descriptions. Returns a Promise of matching product ids.
+      // Like a real server, response time varies with the query.
+      search: function (query) {
+        const q = String(query).trim().toLowerCase();
+        const delay = Math.max(120, 900 - q.length * 140);
+        return new Promise(function (resolve) {
+          setTimeout(function () {
+            resolve(PRODUCTS.filter(function (p) {
+              return p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
+            }).map(function (p) { return p.id; }));
+          }, delay);
+        });
+      },
+      // Delivery estimate for an Indian pincode. Resolves { serviceable, days }.
+      // Rejects with Error('INVALID_PINCODE') for anything that is not a valid 6-digit pincode.
+      checkPincode: function (pin) {
+        const zones = { '73': 2, '70': 3, '71': 3, '11': 4, '40': 4, '56': 5, '60': 5, '50': 5 };
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            if (!/^[1-9][0-9]{5}$/.test(String(pin))) return reject(new Error('INVALID_PINCODE'));
+            const days = zones[String(pin).slice(0, 2)];
+            resolve(days ? { serviceable: true, days: days } : { serviceable: false });
+          }, 400 + Math.random() * 600);
+        });
+      }
+    };
+    // ---- API END ----
+
+    const FREE_SHIPPING_THRESHOLD = 599; // Existing page used ₹599; confirm this with the assessment team.
+    const MAX_QTY = 5;
+    const CART_KEY = "mv_cart";
+    const COUPON_KEY = "mv_coupon";
+
+    const state = {
+      cart: loadCart(),
+      category: "all",
+      sort: "default",
+      query: "",
+      searchIds: null,
+      searchRequest: 0,
+      coupon: localStorage.getItem(COUPON_KEY) || ""
+    };
+
+    const $ = (selector) => document.querySelector(selector);
+
+    function loadCart() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+        if (!Array.isArray(raw)) return [];
+        return raw
+          .filter(item => item && Number.isInteger(Number(item.id)) && Number.isInteger(Number(item.qty)))
+          .map(item => ({ id: Number(item.id), qty: Math.max(1, Number(item.qty)) }))
+          .filter(item => PRODUCTS.some(p => p.id === item.id && p.stock > 0))
+          .map(item => {
+            const p = PRODUCTS.find(p => p.id === item.id);
+            return { id: item.id, qty: Math.min(item.qty, MAX_QTY, p.stock) };
+          });
+      } catch {
+        return [];
+      }
+    }
+
+    function saveCart() {
+      localStorage.setItem(CART_KEY, JSON.stringify(state.cart));
+      if (state.coupon) localStorage.setItem(COUPON_KEY, state.coupon);
+      else localStorage.removeItem(COUPON_KEY);
+    }
+
+    function money(value) {
+      return "₹" + Math.round(Number(value) || 0).toLocaleString("en-IN");
+    }
+
+    function escapeHTML(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function getProduct(id) {
+      return PRODUCTS.find(p => p.id === Number(id));
+    }
+
+    function cartQty(id) {
+      const item = state.cart.find(i => i.id === Number(id));
+      return item ? item.qty : 0;
+    }
+
+    function subtotal() {
+      return state.cart.reduce((sum, item) => {
+        const p = getProduct(item.id);
+        return sum + (p ? p.price * item.qty : 0);
+      }, 0);
+    }
+
+    function eligibleSubtotal() {
+      return state.cart.reduce((sum, item) => {
+        const p = getProduct(item.id);
+        if (!p || p.category === "Gifts") return sum;
+        return sum + p.price * item.qty;
+      }, 0);
+    }
+
+    function calculateDiscount() {
+      if (state.coupon.toUpperCase() !== "WELCOME10") return 0;
+      const sub = subtotal();
+      if (sub < 399) return 0;
+      return Math.min(eligibleSubtotal() * 0.10, 150);
+    }
+
+    function shippingAmount(afterDiscount) {
+      return afterDiscount >= FREE_SHIPPING_THRESHOLD ? 0 : 49;
+    }
+
+    function getFilteredProducts() {
+      let list = PRODUCTS.slice();
+
+      if (state.query.trim()) {
+        const ids = state.searchIds || [];
+        list = list.filter(p => ids.includes(p.id));
+      }
+
+      if (state.category !== "all") {
+        list = list.filter(p => p.category === state.category);
+      }
+
+      const sortFn = {
+        low: (a, b) => a.price - b.price,
+        high: (a, b) => b.price - a.price,
+        name: (a, b) => a.name.localeCompare(b.name)
+      }[state.sort];
+
+      if (sortFn) list.sort(sortFn);
+
+      // Sold-out items are always last, regardless of selected sort.
+      list.sort((a, b) => Number(a.stock === 0) - Number(b.stock === 0));
+
+      return list;
+    }
+
+    function renderProducts() {
+      const grid = $("#product-grid");
+      const list = getFilteredProducts();
+
+      $("#shop-status").textContent = state.query.trim()
+        ? `${list.length} result${list.length === 1 ? "" : "s"} for “${state.query.trim()}”`
+        : `${list.length} products`;
+
+      if (!list.length) {
+        grid.innerHTML = `
+          <div class="empty-state" style="grid-column:1/-1">
+            <h3>No teas found</h3>
+            <p class="muted">Try another search or category.</p>
+          </div>`;
+        return;
+      }
+
+      grid.innerHTML = list.map(p => {
+        const soldOut = p.stock === 0;
+        const qty = cartQty(p.id);
+        const rating = p.rating
+          ? `<span aria-label="${p.rating} out of 5 stars">${"★".repeat(Math.round(p.rating))} ${p.rating} · ${p.reviews} reviews</span>`
+          : `<span>Details available in product description</span>`;
+
+        return `
+          <article class="product-card">
+            <div class="product-media">
+              <img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}" loading="lazy" width="600" height="600">
+              <span class="product-badge ${soldOut ? "sold-out" : ""}">${soldOut ? "Sold out" : p.category}</span>
+              <button class="quick-view" type="button" data-quick-view="${p.id}">Quick view</button>
+            </div>
+            <div class="product-content">
+              <div class="product-category">${escapeHTML(p.category)}</div>
+              <h3>${escapeHTML(p.name)}</h3>
+              <div class="rating">${rating}</div>
+              <p class="product-desc">${escapeHTML(p.desc)}</p>
+              <div class="price-row">
+                <span class="price">${money(p.price)}</span>
+                <span class="stock ${soldOut ? "out" : ""}">
+                  ${soldOut ? "Unavailable" : `${p.stock - qty} left`}
+                </span>
+              </div>
+              <div class="card-actions">
+                <button class="btn btn-primary" type="button" data-add="${p.id}" ${soldOut || qty >= Math.min(MAX_QTY, p.stock) ? "disabled" : ""}>
+                  ${soldOut ? "Sold out" : qty ? `Add another (${qty})` : "Add to cart"}
+                </button>
+              </div>
+            </div>
+          </article>`;
+      }).join("");
+    }
+
+    function renderCart() {
+      const count = state.cart.reduce((sum, item) => sum + item.qty, 0);
+      $("#cart-count").textContent = count;
+
+      const itemsEl = $("#cart-items");
+      if (!state.cart.length) {
+        itemsEl.innerHTML = `
+          <div class="empty-state">
+            <h3>Your cart is empty</h3>
+            <p class="muted">Choose a tea and it will appear here.</p>
+            <button class="btn btn-primary" type="button" id="empty-cart-shop">Shop the teas</button>
+          </div>`;
+      } else {
+        itemsEl.innerHTML = state.cart.map(item => {
+          const p = getProduct(item.id);
+          if (!p) return "";
+          return `
+            <article class="cart-line">
+              <img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}" width="144" height="144">
+              <div>
+                <h3>${escapeHTML(p.name)}</h3>
+                <div class="muted">${money(p.price)} per pack</div>
+                <div class="cart-meta">
+                  <div class="qty-controls" aria-label="Quantity for ${escapeHTML(p.name)}">
+                    <button type="button" data-minus="${p.id}" aria-label="Decrease quantity">−</button>
+                    <span>${item.qty}</span>
+                    <button type="button" data-plus="${p.id}" aria-label="Increase quantity" ${item.qty >= Math.min(MAX_QTY, p.stock) ? "disabled" : ""}>+</button>
+                  </div>
+                  <button class="remove-button" type="button" data-remove="${p.id}">Remove</button>
+                </div>
+              </div>
+            </article>`;
+        }).join("");
+      }
+
+      const sub = subtotal();
+      const discount = calculateDiscount();
+      const afterDiscount = Math.max(0, sub - discount);
+      const shipping = shippingAmount(afterDiscount);
+      const total = Math.round(afterDiscount + shipping);
+
+      const progress = Math.min(100, (afterDiscount / FREE_SHIPPING_THRESHOLD) * 100);
+      $("#ship-fill").style.width = progress + "%";
+
+      if (afterDiscount >= FREE_SHIPPING_THRESHOLD) {
+        $("#ship-message").textContent = "Free shipping unlocked.";
+      } else {
+        $("#ship-message").textContent = `Add ${money(FREE_SHIPPING_THRESHOLD - afterDiscount)} more for free shipping.`;
+      }
+
+      $("#totals").innerHTML = `
+        <div class="total-row"><span>Subtotal</span><strong>${money(sub)}</strong></div>
+        <div class="total-row"><span>Discount</span><strong>− ${money(discount)}</strong></div>
+        <div class="total-row"><span>Shipping</span><strong>${shipping ? money(shipping) : "Free"}</strong></div>
+        <div class="total-row final"><span>Total</span><strong>${money(total)}</strong></div>
+      `;
+
+      $("#coupon").value = state.coupon;
+      $("#checkout-button").disabled = !state.cart.length;
+      saveCart();
+    }
+
+    function showToast(message) {
+      const toast = $("#toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    function addToCart(id) {
+      const p = getProduct(id);
+      if (!p || p.stock <= 0) {
+        showToast("This product is sold out.");
+        return;
+      }
+
+      const max = Math.min(MAX_QTY, p.stock);
+      const existing = state.cart.find(item => item.id === p.id);
+
+      if (existing) {
+        if (existing.qty >= max) {
+          showToast(`You can add up to ${max} of this product.`);
+          return;
+        }
+        existing.qty += 1;
+      } else {
+        state.cart.push({ id: p.id, qty: 1 });
+      }
+
+      saveCart();
+      renderProducts();
+      renderCart();
+      showToast(`${p.name} added to your cart.`);
+    }
+
+    function changeQty(id, delta) {
+      const p = getProduct(id);
+      const item = state.cart.find(i => i.id === Number(id));
+      if (!p || !item) return;
+
+      const max = Math.min(MAX_QTY, p.stock);
+      item.qty = Math.max(0, Math.min(max, item.qty + delta));
+
+      if (item.qty === 0) {
+        state.cart = state.cart.filter(i => i.id !== p.id);
+      }
+
+      renderProducts();
+      renderCart();
+    }
+
+    function removeFromCart(id) {
+      state.cart = state.cart.filter(i => i.id !== Number(id));
+      renderProducts();
+      renderCart();
+      showToast("Item removed from your cart.");
+    }
+
+    function openCart() {
+      $("#overlay").classList.add("open");
+      $("#cart-drawer").classList.add("open");
+      $("#cart-drawer").setAttribute("aria-hidden", "false");
+      document.body.classList.add("is-locked");
+      $("#close-cart").focus();
+    }
+
+    function closeCart() {
+      $("#overlay").classList.remove("open");
+      $("#cart-drawer").classList.remove("open");
+      $("#cart-drawer").setAttribute("aria-hidden", "true");
+      document.body.classList.remove("is-locked");
+    }
+
+    function openQuickView(id) {
+      const p = getProduct(id);
+      if (!p) return;
+
+      const soldOut = p.stock === 0;
+      $("#quick-view-body").innerHTML = `
+        <div class="quick-view-grid">
+          <img class="quick-view-image" src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}" width="700" height="700">
+          <div>
+            <p class="eyebrow">${escapeHTML(p.category)}</p>
+            <h3 style="font-family:'Fraunces',serif;font-size:32px;margin-bottom:10px;">${escapeHTML(p.name)}</h3>
+            <p class="muted">${escapeHTML(p.desc)}</p>
+            ${p.rating ? `<p class="rating">${"★".repeat(Math.round(p.rating))} ${p.rating} · ${p.reviews} reviews</p>` : ""}
+            <p class="price" style="margin:18px 0;">${money(p.price)}</p>
+            <button class="btn btn-primary" type="button" data-qv-add="${p.id}" ${soldOut ? "disabled" : ""}>
+              ${soldOut ? "Sold out" : "Add to cart"}
+            </button>
+          </div>
+        </div>`;
+
+      $("#quick-view-modal").classList.add("open");
+      $("#quick-view-modal").setAttribute("aria-hidden", "false");
+      document.body.classList.add("is-locked");
+      $("#close-quick-view").focus();
+    }
+
+    function closeQuickView() {
+      $("#quick-view-modal").classList.remove("open");
+      $("#quick-view-modal").setAttribute("aria-hidden", "true");
+      document.body.classList.remove("is-locked");
+    }
+
+    function applyCoupon() {
+      const code = $("#coupon").value.trim().toUpperCase();
+      const sub = subtotal();
+
+      if (!code) {
+        state.coupon = "";
+        $("#coupon-message").textContent = "Coupon removed.";
+        $("#coupon-message").style.color = "var(--muted)";
+        renderCart();
+        return;
+      }
+
+      if (code !== "WELCOME10") {
+        state.coupon = "";
+        $("#coupon-message").textContent = "That coupon code isn't valid.";
+        $("#coupon-message").style.color = "var(--error)";
+        renderCart();
+        return;
+      }
+
+      if (sub < 399) {
+        state.coupon = "";
+        $("#coupon-message").textContent = "WELCOME10 applies to carts of at least ₹399.";
+        $("#coupon-message").style.color = "var(--error)";
+        renderCart();
+        return;
+      }
+
+      if (eligibleSubtotal() <= 0) {
+        state.coupon = "";
+        $("#coupon-message").textContent = "WELCOME10 does not apply to gift boxes.";
+        $("#coupon-message").style.color = "var(--error)";
+        renderCart();
+        return;
+      }
+
+      state.coupon = "WELCOME10";
+      $("#coupon-message").textContent = `WELCOME10 applied: ${money(calculateDiscount())} off.`;
+      $("#coupon-message").style.color = "var(--leaf)";
+      renderCart();
+    }
+
+    async function runSearch(query) {
+      const requestId = ++state.searchRequest;
+      state.query = query;
+
+      if (!query.trim()) {
+        state.searchIds = null;
+        renderProducts();
+        return;
+      }
+
+      $("#shop-status").textContent = "Searching…";
+
+      try {
+        const ids = await API.search(query);
+        if (requestId !== state.searchRequest) return;
+        state.searchIds = ids;
+        renderProducts();
+      } catch {
+        if (requestId !== state.searchRequest) return;
+        state.searchIds = [];
+        renderProducts();
+      }
+    }
+
+    async function checkPin() {
+      const pin = $("#pin").value.trim();
+      const result = $("#pin-result");
+      const button = $("#pin-button");
+
+      result.className = "form-message";
+      result.textContent = "Checking…";
+      button.disabled = true;
+
+      try {
+        const response = await API.checkPincode(pin);
+        if (response.serviceable) {
+          result.className = "form-message success";
+          result.textContent = `Delivery is available. Estimated delivery: ${response.days} working day${response.days === 1 ? "" : "s"}.`;
+        } else {
+          result.className = "form-message error";
+          result.textContent = "This pincode is not serviceable yet.";
+        }
+      } catch (error) {
+        result.className = "form-message error";
+        result.textContent = error && error.message === "INVALID_PINCODE"
+          ? "Please enter a valid 6-digit pincode."
+          : "We couldn't check that pincode. Please try again.";
+      } finally {
+        button.disabled = false;
+      }
+    }
+
+    function buildSchemas() {
+      const faq = [
+        ["How long does delivery take?", "2 to 5 working days depending on your pincode. Use the delivery check to see yours."],
+        ["Can I return tea?", "Unopened packs can be returned within 7 days of delivery. Opened tea cannot be returned for hygiene reasons."],
+        ["How should I store my tea?", "In an airtight container, away from light, heat and strong smells. It tastes best within 6 months of opening."],
+        ["Is Chamomile & Tulsi caffeine-free?", "Yes, it is a caffeine-free herbal blend."],
+        ["Do you ship outside India?", "Not yet. We currently deliver within India only."],
+        ["Can I send tea as a gift?", "Yes. The Tea Lover's Sampler comes in a wooden gift box with a brewing guide."]
+      ];
+
+      $("#faq-schema").textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faq.map(([question, answer]) => ({
+          "@type": "Question",
+          "name": question,
+          "acceptedAnswer": { "@type": "Answer", "text": answer }
+        }))
+      });
+
+      $("#product-schema").textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": PRODUCTS.map(p => {
+          const data = {
+            "@type": "Product",
+            "name": p.name,
+            "description": p.desc,
+            "image": `https://mistvale.example/${p.image}`,
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "price": String(p.price),
+              "availability": p.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+            }
+          };
+          if (p.rating) {
+            data.aggregateRating = {
+              "@type": "AggregateRating",
+              "ratingValue": String(p.rating),
+              "reviewCount": String(p.reviews)
+            };
+          }
+          return data;
+        })
+      });
+    }
+
+    function renderFAQ() {
+      const items = [
+        ["How long does delivery take?", "2 to 5 working days depending on your pincode. Use the delivery check to see yours."],
+        ["Can I return tea?", "Unopened packs can be returned within 7 days of delivery. Opened tea cannot be returned for hygiene reasons."],
+        ["How should I store my tea?", "In an airtight container, away from light, heat and strong smells. It tastes best within 6 months of opening."],
+        ["Is Chamomile & Tulsi caffeine-free?", "Yes, it is a caffeine-free herbal blend."],
+        ["Do you ship outside India?", "Not yet. We currently deliver within India only."],
+        ["Can I send tea as a gift?", "Yes. The Tea Lover's Sampler comes in a wooden gift box with a brewing guide."]
+      ];
+
+      $("#faq-list").innerHTML = items.map(([question, answer], index) => `
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-${index}" data-faq="${index}">
+            <span>${escapeHTML(question)}</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer hidden" id="faq-answer-${index}">
+            ${escapeHTML(answer)}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function setupEvents() {
+      $("#cart-button").addEventListener("click", openCart);
+      $("#close-cart").addEventListener("click", closeCart);
+      $("#overlay").addEventListener("click", closeCart);
+
+      $("#close-quick-view").addEventListener("click", closeQuickView);
+      $("#quick-view-modal").addEventListener("click", e => {
+        if (e.target === $("#quick-view-modal")) closeQuickView();
+      });
+
+      $("#header-search-button").addEventListener("click", () => {
+        $("#product-search").focus();
+        $("#shop").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      $("#mobile-menu-button").addEventListener("click", () => {
+        const button = $("#mobile-menu-button");
+        const nav = document.querySelector(".main-nav");
+        const open = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!open));
+        if (!open) {
+          nav.style.display = "flex";
+          nav.style.position = "absolute";
+          nav.style.top = "100%";
+          nav.style.left = "0";
+          nav.style.right = "0";
+          nav.style.padding = "16px";
+          nav.style.background = "var(--cream)";
+          nav.style.borderBottom = "1px solid var(--line)";
+          nav.style.flexDirection = "column";
+        } else {
+          nav.removeAttribute("style");
+        }
+      });
+
+      let searchTimer;
+      $("#product-search").addEventListener("input", e => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => runSearch(e.target.value), 120);
+      });
+
+      $("#sort-select").addEventListener("change", e => {
+        state.sort = e.target.value;
+        renderProducts();
+      });
+
+      $("#filters").addEventListener("click", e => {
+        const button = e.target.closest("[data-category]");
+        if (!button) return;
+
+        state.category = button.dataset.category;
+        document.querySelectorAll(".filter-chip").forEach(el => el.classList.remove("active"));
+        button.classList.add("active");
+        renderProducts();
+      });
+
+      $("#product-grid").addEventListener("click", e => {
+        const add = e.target.closest("[data-add]");
+        const quick = e.target.closest("[data-quick-view]");
+        if (add) addToCart(Number(add.dataset.add));
+        if (quick) openQuickView(Number(quick.dataset.quickView));
+      });
+
+      $("#cart-items").addEventListener("click", e => {
+        const plus = e.target.closest("[data-plus]");
+        const minus = e.target.closest("[data-minus]");
+        const remove = e.target.closest("[data-remove]");
+        const emptyShop = e.target.closest("#empty-cart-shop");
+
+        if (plus) changeQty(Number(plus.dataset.plus), 1);
+        if (minus) changeQty(Number(minus.dataset.minus), -1);
+        if (remove) removeFromCart(Number(remove.dataset.remove));
+        if (emptyShop) {
+          closeCart();
+          $("#shop").scrollIntoView({ behavior: "smooth" });
+        }
+      });
+
+      $("#coupon-button").addEventListener("click", applyCoupon);
+
+      $("#coupon").addEventListener("keydown", e => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          applyCoupon();
+        }
+      });
+
+      $("#checkout-button").addEventListener("click", () => {
+        if (!state.cart.length) return;
+
+        const itemsField = document.querySelector('#checkout-form input[name="items"]');
+        const couponField = document.querySelector('#checkout-form input[name="coupon"]');
+
+        itemsField.value = JSON.stringify(state.cart.map(item => ({
+          id: item.id,
+          qty: item.qty
+        })));
+
+        couponField.value = state.coupon || "";
+        document.getElementById("checkout-form").submit();
+      });
+
+      $("#delivery-form").addEventListener("submit", e => {
+        e.preventDefault();
+        checkPin();
+      });
+
+      $("#newsletter-form").addEventListener("submit", e => {
+        e.preventDefault();
+        const email = $("#nl-email").value.trim();
+        const message = $("#nl-msg");
+
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          message.className = "form-message error";
+          message.textContent = "Please enter a valid email address.";
+          return;
+        }
+
+        message.className = "form-message success";
+        message.textContent = "Thanks for subscribing.";
+        e.target.reset();
+      });
+
+      $("#faq-list").addEventListener("click", e => {
+        const button = e.target.closest("[data-faq]");
+        if (!button) return;
+
+        const answer = document.getElementById(`faq-answer-${button.dataset.faq}`);
+        const expanded = button.getAttribute("aria-expanded") === "true";
+
+        button.setAttribute("aria-expanded", String(!expanded));
+        answer.classList.toggle("hidden", expanded);
+      });
+
+      $("#quick-view-body").addEventListener("click", e => {
+        const button = e.target.closest("[data-qv-add]");
+        if (!button) return;
+        addToCart(Number(button.dataset.qvAdd));
+        closeQuickView();
+        openCart();
+      });
+
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape") {
+          closeCart();
+          closeQuickView();
+        }
+      });
+    }
+
+    renderFAQ();
+    buildSchemas();
+    setupEvents();
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>
